@@ -63,3 +63,26 @@ class Die:
             return
         for line in DICE_ART[self._value]:
             print(line)
+
+
+class DiceGame:
+    def __init__(self):
+        self.die = Die()
+
+    def play(self):
+        print("Welcome to the Dice Rolling Simulator!")
+        while True:
+            user_input = input("Press Enter to roll the dice or 'q' to quit: ").strip()
+            if user_input == 'q':
+                print("Goodbye!")
+                break
+            elif user_input == '':
+                self.die.roll()
+                self.die.display()
+            else:
+                print("Invalid input. Press Enter to roll or 'q' to quit.")
+
+
+if __name__ == "__main__":
+    game = DiceGame()
+    game.play()
